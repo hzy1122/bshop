@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--
+    targetRuntime: 执行生成的逆向工程的版本
+    MyBatis3Simple: 生成基本的CRUD（简洁版）
+    MyBatis3: 生成带条件的CRUD（正常版）
+    -->
+    <context id="wesley_mybatis" targetRuntime="MyBatis3">
+        <!-- 数据库的连接信息 -->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/bshop"
+                        userId="root"
+                        password="1234">
+            <!-- 数据库表和其他数据库表同名时，避免产生另一个数据库表的字段 -->
+            <property name="nullCatalogMeansCurrent" value="true"/>
+        </jdbcConnection>
+        <!-- JavaBean的生成策略-->
+        <javaModelGenerator targetPackage="org.hzy.bshop.entity"
+                            targetProject=".\src\main\java">
+            <!-- 是否可以使用子包 -->
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!-- SQL映射文件的生成策略 -->
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject=".\src\main\resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- Mapper接口的生成策略 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="org.hzy.bshop.mapper"
+                             targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <!-- 逆向分析的表 -->
+        <!-- tableName设置为*号，可以对应所有表，此时不写domainObjectName -->
+        <!-- domainObjectName属性指定生成出来的实体类的类名 -->
+        <table tableName="t_address" domainObjectName="Address"/>
+        <table tableName="t_admin" domainObjectName="Admin"/>
+        <table tableName="t_brand" domainObjectName="Brand"/>
+        <table tableName="t_cart" domainObjectName="Cart"/>
+        <table tableName="t_cart_item" domainObjectName="CartItem"/>
+        <table tableName="t_badminton" domainObjectName="Badminton"/>
+        <table tableName="t_handle" domainObjectName="Handle"/>
+        <table tableName="t_order" domainObjectName="Order"/>
+        <table tableName="t_order_item" domainObjectName="OrderItem"/>
+       <table tableName="t_place" domainObjectName="Place"/>
+        <table tableName="t_plume" domainObjectName="Plume"/>
+        <table tableName="t_racket" domainObjectName="Racket"/>
+        <table tableName="t_series" domainObjectName="Series"/>
+        <table tableName="t_speed" domainObjectName="Speed"/>
+        <table tableName="t_user" domainObjectName="User"/>
+        <table tableName="t_weight" domainObjectName="Weight"/>
+    </context>
+</generatorConfiguration>

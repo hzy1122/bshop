@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <properties resource="db.properties"></properties>
+
+    <settings>
+        <!--开启驼峰命名-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <!--
+    <typeAliases>
+        <package name="org.hzy.mybatis.entity"/>
+    </typeAliases>
+    -->
+
+    <plugins>
+        <!--分页插件-->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
+
+    <environments default="development">
+
+        <environment id="development">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"></property>
+                <property name="url" value="${jdbc.url}"></property>
+                <property name="username" value="${jdbc.username}"></property>
+                <property name="password" value="${jdbc.password}"></property>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="mapper/AddressMapper.xml"></mapper>
+        <mapper resource="mapper/AdminMapper.xml"></mapper>
+        <mapper resource="mapper/BrandMapper.xml"></mapper>
+        <mapper resource="mapper/CartMapper.xml"></mapper>
+        <mapper resource="mapper/CartItemMapper.xml"></mapper>
+        <mapper resource="mapper/BadmintonMapper.xml"></mapper>
+        <mapper resource="mapper/HandleMapper.xml"></mapper>
+        <mapper resource="mapper/OrderMapper.xml"></mapper>
+        <mapper resource="mapper/OrderItemMapper.xml"></mapper>
+        <mapper resource="mapper/PlaceMapper.xml"></mapper>
+        <mapper resource="mapper/PlumeMapper.xml"></mapper>
+        <mapper resource="mapper/RacketMapper.xml"></mapper>
+        <mapper resource="mapper/SeriesMapper.xml"></mapper>
+        <mapper resource="mapper/SpeedMapper.xml"></mapper>
+        <mapper resource="mapper/UserMapper.xml"></mapper>
+        <mapper resource="mapper/WeightMapper.xml"></mapper>
+    </mappers>
+
+</configuration>
